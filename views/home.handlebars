@@ -1,1 +1,28 @@
-<h1>Welcome to My Website</h1>
+<h1>Which Pet is Cutest?</h1>
+
+{{#each pets}}
+
+  <h2>{{name}}</h2> 
+  <img src ="img/{{image}}" alt = "Photo of {{name}}" style="width: 150px;">
+
+
+{{/each}}
+
+
+<form action = "/vote", method="POST">
+<fieldset>
+    <legend>Which pet wins?</legend>
+{{#each pets}}
+
+<input type="radio", id ="pet-{{@index}}", name ="name", value ="{{name}}" />
+<label for="pet-{{@index}}">{{name}}</label>
+
+{{/each}}
+</fieldset>
+    <textarea id="comments" name="comments"></textarea>
+ 
+    <button type="submit", value="vote">Submit</button>
+    
+
+
+</form>
